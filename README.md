@@ -1,6 +1,5 @@
 # Chess-WPF
-
-Stary projekt szachów w .NET 6 WPF.
+![obraz](https://github.com/user-attachments/assets/acc46c1a-a8b8-4086-8274-f3e82eaa469e)
 
 ## Opis
 
@@ -34,3 +33,4 @@ Ten projekt jest idealny do:
 * Implementacji algorytmów sztucznej inteligencji.
 * Refaktoryzacji i poprawy istniejącego kodu.
 * Nauki testowania poszczególnych elementów kodu (testy jednostkowe) jak i testowania funkcjonalnego.
+
