@@ -1,0 +1,101 @@
+﻿<Window x:Class="Szachy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Szachy" Icon="Assets/appIcon.ico"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Szachy" Height="576" Width="824">
+
+    <Canvas x:Name="ChessPanel" Width="512" Height="512" Margin="10 10 272 10" IsEnabled="True">
+        <Canvas.Background>
+            <ImageBrush ImageSource="Assets/chess_board.png"/>
+        </Canvas.Background>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="InfoPanel" Width="256" Height="512" Margin="8 0 0 0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="64"/>
+                    <RowDefinition Height="448"/>
+                </Grid.RowDefinitions>
+
+                <Border x:Name="Timers" Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1" Grid.Row="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="64*"/>
+                            <ColumnDefinition Width="64*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0" Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1">
+                            <Canvas Height="32">
+                                <Image Canvas.Left="0" Width="32" Source="Assets/WhitePawn.png"/>
+                                <TextBlock x:Name="WhiteTimer" Text="10:00" FontSize="24" HorizontalAlignment="Center" Canvas.Left="64"/>
+                                <Line x:Name="WhiteTurn" X1="0" Y1="40" X2="126" Y2="40" Stroke="Green" StrokeThickness="4"/>
+                            </Canvas>
+                        </Border>
+
+                        <Border Grid.Column="1" Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1" Canvas.Left="64">
+                        <Canvas Height="32">
+                            <Image Canvas.Left="0" Width="32" Source="Assets/BlackPawn.png"/>
+                            <TextBlock x:Name="BlackTimer" Text="10:00" FontSize="24" HorizontalAlignment="Center" Canvas.Left="64"/>
+                            <Line x:Name="BlackTurn" X1="0" Y1="40" X2="126" Y2="40" Stroke="Green" StrokeThickness="4"/>
+                        </Canvas>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <Border x:Name="Scoreboard" Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1" Grid.Row="1">
+                    <ScrollViewer>
+                        <StackPanel CanVerticallyScroll="True" >
+                            <TextBlock x:Name="ScoreTextBlock" Margin="10 10 10 10" TextWrapping="Wrap" FontFamily="Consolas" FontSize="12">
+
+                            </TextBlock>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </Grid>
+            <Grid x:Name="Chessboard" Width="512" Height="512" MouseDown="Chessboard_MouseDown" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Canvas x:Name="PromotionPanel" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="1">
+                    <Border Background="GhostWhite" Width="208" Height="56" Canvas.Top="-28" Canvas.Left="-104" Opacity="0.95" BorderBrush="Gainsboro" BorderThickness="1" Grid.Row="0">
+                        <Grid x:Name="PromotionGrid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="Promo1" Tag="Bishop" Grid.Column="0"/>
+                            <Image x:Name="Promo3" Tag="Knight" Grid.Column="2"/>
+                            <Image x:Name="Promo2" Tag="Rook" Grid.Column="1"/>
+                            <Image x:Name="Promo4" Tag="Queen" Grid.Column="3"/>
+                        </Grid>
+                    </Border>
+                </Canvas>
+            </Grid>
+        </Grid>
+    </Canvas>
+</Window>
