@@ -8,13 +8,13 @@ Ten projekt to starsza implementacja gry w szachy, stworzona w technologii .NET 
 ## Funkcjonalności
 
 * Podstawowa implementacja planszy szachowej.
-* Wyświetlanie figur szachowych.
+* Wyświetlanie możliwych ruchów.
 * Rozgrywka dla dwóch osób.
 * Zegar oraz notacja szachowa
 
 ## Technologie
 
-* .NET 6
+* .NET 6.0
 * WPF (Windows Presentation Foundation)
 * C#
 
